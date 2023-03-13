@@ -2,11 +2,11 @@
     <body>
         <form onsubmit="SaveToLocalStorage(event)">
             <label>Name</label>
-            <input type="text" name="username" required />
-            <label>Email</label>
-            <input type="email" name="'emailId" required />
+            <input type="text" name="username" />
+            <label>EmailId</label>
+            <input type="email" name="emailId" />
             <label>Mobile</label>
-            <input type="tel" name="phoneNumber"/>
+            <input type="tel" name="phonenumber"/>
             <button>Submit</button>
         </form>
 
@@ -15,10 +15,16 @@
                 event.preventDefault();
                 const name=event.target.username.value;
                 const email=event.target.emailId.value;
-                const phonenumber=event.target.phoneNumber.value;
+                const phonenumber=event.target.phonenumber.value;
                 localStorage.setItem('name',name);
                 localStorage.setItem('email',email);
                 localStorage.setItem('phonenumber',phonenumber);
+                const obj={
+                    name,
+                    email,
+                    phonenumber
+                }
+                localStorage.setItem('userdetails', JSON.stringify(obj));
             }
         </script>
     </body>
